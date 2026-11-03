@@ -1,0 +1,385 @@
+[
+  {
+    "file": "hillside_income_statement_2025.xlsx",
+    "extractor": "rules",
+    "status": "reconciled",
+    "extraction": {
+      "company_name": "[sheet: P&L FY2025]",
+      "statement_type": "income_statement",
+      "period_label": "year ended December 31, 2025",
+      "currency": "USD",
+      "units": "thousands",
+      "revenue": {
+        "value": 12880.0,
+        "page": 1,
+        "label_in_doc": "Total revenue"
+      },
+      "cost_of_revenue": {
+        "value": 7215.0,
+        "page": 1,
+        "label_in_doc": "Cost of services"
+      },
+      "gross_profit": {
+        "value": 5665.0,
+        "page": 1,
+        "label_in_doc": "Gross profit"
+      },
+      "operating_expenses": {
+        "value": 3120.0,
+        "page": 1,
+        "label_in_doc": "Total operating expenses"
+      },
+      "operating_income": {
+        "value": 2545.0,
+        "page": 1,
+        "label_in_doc": "Operating income"
+      },
+      "net_income": {
+        "value": 1902.0,
+        "page": 1,
+        "label_in_doc": "Net income"
+      },
+      "notes": [
+        "Extracted by deterministic rules (no LLM)."
+      ]
+    },
+    "normalised": {
+      "revenue": 12880000.0,
+      "cost_of_revenue": 7215000.0,
+      "gross_profit": 5665000.0,
+      "operating_expenses": 3120000.0,
+      "operating_income": 2545000.0,
+      "net_income": 1902000.0
+    },
+    "reconciliation": [
+      {
+        "name": "gross_profit",
+        "formula": "revenue - cost_of_revenue",
+        "expected": 5665000.0,
+        "actual": 5665000.0,
+        "status": "pass",
+        "diff": 0.0
+      },
+      {
+        "name": "operating_income",
+        "formula": "gross_profit - operating_expenses",
+        "expected": 2545000.0,
+        "actual": 2545000.0,
+        "status": "pass",
+        "diff": 0.0
+      },
+      {
+        "name": "net_income_within_revenue",
+        "formula": "net_income <= revenue",
+        "expected": 12880000.0,
+        "actual": 1902000.0,
+        "status": "pass",
+        "diff": -10978000.0
+      }
+    ],
+    "trace": {
+      "pages": 1,
+      "ocr_pages": []
+    }
+  },
+  {
+    "file": "lakeside_income_statement_2025_scanned.pdf",
+    "extractor": "rules",
+    "status": "reconciled",
+    "extraction": {
+      "company_name": "Lakeside Pediatric Group, LLC (fictional)",
+      "statement_type": "income_statement",
+      "period_label": "year ended December 31, 2025",
+      "currency": "USD",
+      "units": "thousands",
+      "revenue": {
+        "value": 5120.0,
+        "page": 1,
+        "label_in_doc": "Total revenue"
+      },
+      "cost_of_revenue": {
+        "value": 2960.0,
+        "page": 1,
+        "label_in_doc": "Cost of services"
+      },
+      "gross_profit": {
+        "value": 2160.0,
+        "page": 1,
+        "label_in_doc": "Gross profit"
+      },
+      "operating_expenses": {
+        "value": 1402.0,
+        "page": 1,
+        "label_in_doc": "Total operating expenses"
+      },
+      "operating_income": {
+        "value": 758.0,
+        "page": 1,
+        "label_in_doc": "Operating income"
+      },
+      "net_income": {
+        "value": 611.0,
+        "page": 1,
+        "label_in_doc": "Net income"
+      },
+      "notes": [
+        "Extracted by deterministic rules (no LLM)."
+      ]
+    },
+    "normalised": {
+      "revenue": 5120000.0,
+      "cost_of_revenue": 2960000.0,
+      "gross_profit": 2160000.0,
+      "operating_expenses": 1402000.0,
+      "operating_income": 758000.0,
+      "net_income": 611000.0
+    },
+    "reconciliation": [
+      {
+        "name": "gross_profit",
+        "formula": "revenue - cost_of_revenue",
+        "expected": 2160000.0,
+        "actual": 2160000.0,
+        "status": "pass",
+        "diff": 0.0
+      },
+      {
+        "name": "operating_income",
+        "formula": "gross_profit - operating_expenses",
+        "expected": 758000.0,
+        "actual": 758000.0,
+        "status": "pass",
+        "diff": 0.0
+      },
+      {
+        "name": "net_income_within_revenue",
+        "formula": "net_income <= revenue",
+        "expected": 5120000.0,
+        "actual": 611000.0,
+        "status": "pass",
+        "diff": -4509000.0
+      }
+    ],
+    "trace": {
+      "pages": 1,
+      "ocr_pages": [
+        1
+      ]
+    }
+  },
+  {
+    "file": "northgate_income_statement_2025_typo.pdf",
+    "extractor": "rules",
+    "status": "needs_review",
+    "extraction": {
+      "company_name": "Northgate Eye Associates, PC (fictional)",
+      "statement_type": "income_statement",
+      "period_label": "year ended December 31, 2025",
+      "currency": "USD",
+      "units": "thousands",
+      "revenue": {
+        "value": 8648.0,
+        "page": 1,
+        "label_in_doc": "Total revenue"
+      },
+      "cost_of_revenue": {
+        "value": 4905.0,
+        "page": 1,
+        "label_in_doc": "Cost of services"
+      },
+      "gross_profit": {
+        "value": 3473.0,
+        "page": 1,
+        "label_in_doc": "Gross profit"
+      },
+      "operating_expenses": {
+        "value": 2323.0,
+        "page": 1,
+        "label_in_doc": "Total operating expenses"
+      },
+      "operating_income": {
+        "value": 1420.0,
+        "page": 1,
+        "label_in_doc": "Operating income"
+      },
+      "net_income": {
+        "value": 1039.0,
+        "page": 1,
+        "label_in_doc": "Net income"
+      },
+      "notes": [
+        "Extracted by deterministic rules (no LLM)."
+      ]
+    },
+    "normalised": {
+      "revenue": 8648000.0,
+      "cost_of_revenue": 4905000.0,
+      "gross_profit": 3473000.0,
+      "operating_expenses": 2323000.0,
+      "operating_income": 1420000.0,
+      "net_income": 1039000.0
+    },
+    "reconciliation": [
+      {
+        "name": "gross_profit",
+        "formula": "revenue - cost_of_revenue",
+        "expected": 3743000.0,
+        "actual": 3473000.0,
+        "status": "fail",
+        "diff": -270000.0
+      },
+      {
+        "name": "operating_income",
+        "formula": "gross_profit - operating_expenses",
+        "expected": 1150000.0,
+        "actual": 1420000.0,
+        "status": "fail",
+        "diff": 270000.0
+      },
+      {
+        "name": "net_income_within_revenue",
+        "formula": "net_income <= revenue",
+        "expected": 8648000.0,
+        "actual": 1039000.0,
+        "status": "pass",
+        "diff": -7609000.0
+      }
+    ],
+    "trace": {
+      "pages": 1,
+      "ocr_pages": []
+    }
+  },
+  {
+    "file": "riverbend_balance_sheet_2025.pdf",
+    "extractor": "rules",
+    "status": "reconciled",
+    "extraction": {
+      "company_name": "Riverbend Family Dermatology, PLLC (fictional)",
+      "statement_type": "balance_sheet",
+      "period_label": "As of december 31, 2025",
+      "currency": "USD",
+      "units": "thousands",
+      "total_assets": {
+        "value": 5143.0,
+        "page": 1,
+        "label_in_doc": "Total assets"
+      },
+      "total_liabilities": {
+        "value": 3446.0,
+        "page": 1,
+        "label_in_doc": "Total liabilities"
+      },
+      "total_equity": {
+        "value": 1697.0,
+        "page": 1,
+        "label_in_doc": "Total members' equity"
+      },
+      "notes": [
+        "Extracted by deterministic rules (no LLM)."
+      ]
+    },
+    "normalised": {
+      "total_assets": 5143000.0,
+      "total_liabilities": 3446000.0,
+      "total_equity": 1697000.0
+    },
+    "reconciliation": [
+      {
+        "name": "balance",
+        "formula": "total_liabilities + total_equity = total_assets",
+        "expected": 5143000.0,
+        "actual": 5143000.0,
+        "status": "pass",
+        "diff": 0.0
+      }
+    ],
+    "trace": {
+      "pages": 1,
+      "ocr_pages": []
+    }
+  },
+  {
+    "file": "riverbend_income_statement_2025.pdf",
+    "extractor": "rules",
+    "status": "reconciled",
+    "extraction": {
+      "company_name": "Riverbend     Family    Dermatology,      PLLC    (fictional)",
+      "statement_type": "income_statement",
+      "period_label": "year ended December 31, 2025",
+      "currency": "USD",
+      "units": "thousands",
+      "revenue": {
+        "value": 8648.0,
+        "page": 2,
+        "label_in_doc": "Total revenue"
+      },
+      "cost_of_revenue": {
+        "value": 4905.0,
+        "page": 2,
+        "label_in_doc": "Cost of services"
+      },
+      "gross_profit": {
+        "value": 3743.0,
+        "page": 2,
+        "label_in_doc": "Gross profit"
+      },
+      "operating_expenses": {
+        "value": 2323.0,
+        "page": 2,
+        "label_in_doc": "Total operating expenses"
+      },
+      "operating_income": {
+        "value": 1420.0,
+        "page": 2,
+        "label_in_doc": "Operating income"
+      },
+      "net_income": {
+        "value": 1039.0,
+        "page": 2,
+        "label_in_doc": "Net income"
+      },
+      "notes": [
+        "Extracted by deterministic rules (no LLM)."
+      ]
+    },
+    "normalised": {
+      "revenue": 8648000.0,
+      "cost_of_revenue": 4905000.0,
+      "gross_profit": 3743000.0,
+      "operating_expenses": 2323000.0,
+      "operating_income": 1420000.0,
+      "net_income": 1039000.0
+    },
+    "reconciliation": [
+      {
+        "name": "gross_profit",
+        "formula": "revenue - cost_of_revenue",
+        "expected": 3743000.0,
+        "actual": 3743000.0,
+        "status": "pass",
+        "diff": 0.0
+      },
+      {
+        "name": "operating_income",
+        "formula": "gross_profit - operating_expenses",
+        "expected": 1420000.0,
+        "actual": 1420000.0,
+        "status": "pass",
+        "diff": 0.0
+      },
+      {
+        "name": "net_income_within_revenue",
+        "formula": "net_income <= revenue",
+        "expected": 8648000.0,
+        "actual": 1039000.0,
+        "status": "pass",
+        "diff": -7609000.0
+      }
+    ],
+    "trace": {
+      "pages": 2,
+      "ocr_pages": []
+    }
+  }
+]

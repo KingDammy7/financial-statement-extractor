@@ -1,0 +1,234 @@
+{
+  "$defs": {
+    "Amount": {
+      "properties": {
+        "value": {
+          "description": "The number exactly as printed, before applying units. Negative for losses or bracketed numbers.",
+          "title": "Value",
+          "type": "number"
+        },
+        "page": {
+          "anyOf": [
+            {
+              "minimum": 1,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "1-based page the number was read from.",
+          "title": "Page"
+        },
+        "label_in_doc": {
+          "anyOf": [
+            {
+              "maxLength": 120,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "The row label as printed, e.g. 'Total net revenue'.",
+          "title": "Label In Doc"
+        }
+      },
+      "required": [
+        "value"
+      ],
+      "title": "Amount",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "company_name": {
+      "anyOf": [
+        {
+          "maxLength": 200,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Company Name"
+    },
+    "statement_type": {
+      "enum": [
+        "income_statement",
+        "balance_sheet"
+      ],
+      "title": "Statement Type",
+      "type": "string"
+    },
+    "period_label": {
+      "anyOf": [
+        {
+          "maxLength": 60,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "As printed, e.g. 'Year ended 31 December 2025'.",
+      "title": "Period Label"
+    },
+    "period_end": {
+      "anyOf": [
+        {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "ISO date YYYY-MM-DD if determinable.",
+      "title": "Period End"
+    },
+    "currency": {
+      "anyOf": [
+        {
+          "pattern": "^[A-Z]{3}$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "ISO 4217 code, e.g. USD.",
+      "title": "Currency"
+    },
+    "units": {
+      "default": "units",
+      "description": "Scale stated on the document, e.g. '$ in thousands' -> thousands.",
+      "enum": [
+        "units",
+        "thousands",
+        "millions"
+      ],
+      "title": "Units",
+      "type": "string"
+    },
+    "revenue": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Amount"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "cost_of_revenue": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Amount"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "gross_profit": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Amount"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "operating_expenses": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Amount"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "operating_income": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Amount"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "net_income": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Amount"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "total_assets": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Amount"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "total_liabilities": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Amount"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "total_equity": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Amount"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "notes": {
+      "description": "Anything ambiguous: restatements, missing totals, unclear units.",
+      "items": {
+        "type": "string"
+      },
+      "title": "Notes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "statement_type"
+  ],
+  "title": "Extraction",
+  "type": "object"
+}

@@ -1,0 +1,28 @@
+[project]
+name = "financial-statement-extractor"
+version = "0.1.0"
+description = "Extract schema-validated fields from financial statement PDFs and spreadsheets, then reconcile them."
+requires-python = ">=3.11"
+dependencies = [
+  "pdfplumber>=0.11",
+  "pydantic>=2.7",
+  "anthropic>=0.40",
+  "openpyxl>=3.1",
+]
+
+[project.optional-dependencies]
+ocr = ["pytesseract>=0.3.10", "pillow>=10"]
+dev = ["pytest>=8", "reportlab>=4", "pytesseract>=0.3.10", "pillow>=10"]
+
+[project.scripts]
+fse = "fse.cli:main"
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["fse"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
